@@ -9,15 +9,15 @@ resource "random_integer" "index" {
 
 # Replica IP Configuration
 locals {
+  cloud_sql_private_network = module.vpc.network_id ? module.vpc.network_id : "alpha-cloud-sql-private-network"
+
   read_replica_ip_configuration = {
     ipv4_enabled        = var.cloud_sql_ipv4_enabled
     require_ssl         = var.cloud_sql_require_ssl
-    private_network     = module.vpc.network_id ? 1 : 0
+    private_network     = local.cloud_sql_private_network
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
   }
-
-  cloud_sql_private_network = module.vpc.network_id ? module.vpc.network_id : "alpha-cloud-sql-private-network"
 }
 
 #########################################################
@@ -142,7 +142,7 @@ module "cloud-sql-db-postgresql-cs" {
   ip_configuration = {
     ipv4_enabled        = var.cloud_sql_ipv4_enabled
     require_ssl         = var.cloud_sql_require_ssl
-    private_network     = module.vpc.network_id
+    private_network     = local.cloud_sql_private_network
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
   }

@@ -1,8 +1,9 @@
 cluster_node_pools = [
   {
     version            = ""
-    name               = "default-node-pool"
-    machine_type       = "e2-medium"
+    # name               = "default-node-pool"
+    name               = "default-pool"
+    machine_type       = "e2-standard-2"
     node_locations     = ""
     min_count          = 1
     max_count          = 5

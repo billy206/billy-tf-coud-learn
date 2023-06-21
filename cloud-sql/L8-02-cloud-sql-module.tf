@@ -9,7 +9,8 @@ resource "random_integer" "index" {
 
 # Replica IP Configuration
 locals {
-  cloud_sql_private_network = module.vpc.network_id ? module.vpc.network_id : "alpha-cloud-sql-private-network"
+  # cloud_sql_private_network = module.vpc.network_id ? module.vpc.network_id : "alpha-cloud-sql-private-network"
+  cloud_sql_private_network = var.cloud_sql_private_network
 
   read_replica_ip_configuration = {
     ipv4_enabled        = var.cloud_sql_ipv4_enabled

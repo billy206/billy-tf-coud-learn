@@ -88,7 +88,7 @@ module "cloud-sql-db-postgresql-plt" {
     {
       name = "-0"
       # zone                  = data.google_compute_zones.available.names[random_integer.index.result]
-      zone                  = "${region}-c"
+      zone                  = "${local.region}-c"
       availability_type     = var.cloud_sql_availability_type
       tier                  = var.cloud_sql_tier
       ip_configuration      = local.read_replica_ip_configuration
@@ -170,7 +170,7 @@ module "cloud-sql-db-postgresql-cs" {
   read_replicas = [
     {
       name                  = "-0"
-      zone                  = "${region}-c"
+      zone                  = "${local.region}-c"
       availability_type     = var.cloud_sql_availability_type
       tier                  = var.cloud_sql_tier
       ip_configuration      = local.read_replica_ip_configuration

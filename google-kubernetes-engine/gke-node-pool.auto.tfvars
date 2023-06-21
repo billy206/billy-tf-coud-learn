@@ -5,7 +5,7 @@ cluster_node_pools = [
     name               = "default-pool"
     machine_type       = "e2-standard-2"
     node_locations     = ""
-    min_count          = 1
+    min_count          = 0
     max_count          = 5
     local_ssd_count    = 0
     spot               = false
@@ -18,7 +18,7 @@ cluster_node_pools = [
     auto_upgrade       = false
     service_account    = ""
     preemptible        = false
-    initial_node_count = 1
+    initial_node_count = 0
   }
 ]
 

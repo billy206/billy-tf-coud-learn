@@ -1,7 +1,8 @@
 # Create Cloud NAT Terraform Module
 module "cloud-nat" {
-  source  = "terraform-google-modules/cloud-nat/google"
-  version = "4.0.0"
+  depends_on = [google_compute_address.nat-ip-address]
+  source     = "terraform-google-modules/cloud-nat/google"
+  version    = "4.0.0"
 
   # Cloud NAT Project Configuration
   project_id = var.project_id

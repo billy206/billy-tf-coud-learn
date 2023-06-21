@@ -82,13 +82,11 @@ module "cloud-sql-db-postgresql-plt" {
 
   backup_configuration = var.cloud_sql_backup_configuration
 
-  count = 2
-
   # Cloud SQL Read Replica Configuration
   read_replica_name_suffix = var.cloud_sql_replica_name_suffix
   read_replicas = [
     {
-      name                  = "-${count.index}"
+      name                  = "-0"
       zone                  = data.google_compute_zones.available.names[random_integer.index.result]
       availability_type     = var.cloud_sql_availability_type
       tier                  = var.cloud_sql_tier
@@ -166,13 +164,11 @@ module "cloud-sql-db-postgresql-cs" {
 
   backup_configuration = var.cloud_sql_backup_configuration
 
-  count = 1
-
   # Cloud SQL Read Replica Configuration
   read_replica_name_suffix = var.cloud_sql_replica_name_suffix
   read_replicas = [
     {
-      name                  = "-${count.index}"
+      name                  = "-0"
       zone                  = data.google_compute_zones.available.names[random_integer.index.result]
       availability_type     = var.cloud_sql_availability_type
       tier                  = var.cloud_sql_tier

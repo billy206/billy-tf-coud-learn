@@ -9,7 +9,6 @@ data "terraform_remote_state" "workspace" {
   }
 }
 
-# Replica IP Configuration
 locals {
   name = data.terraform_remote_state.workspace.outputs.local_name
 
@@ -21,6 +20,7 @@ locals {
 
   private_network = data.terraform_remote_state.workspace.outputs.network_id
 
+  # Replica IP Configuration
   read_replica_ip_configuration = {
     ipv4_enabled        = var.cloud_sql_ipv4_enabled
     require_ssl         = var.cloud_sql_require_ssl

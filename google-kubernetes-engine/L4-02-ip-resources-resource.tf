@@ -5,7 +5,7 @@ resource "google_compute_address" "nat-ip-address" {
   address_type = var.nat_ip_address_type
   network_tier = var.nat_ip_address_network_tier
 
-  count = 7
+  count = 2
   name  = "${local.name}-${var.nat_ip_name_suffix}-${count.index}"
 
   lifecycle {

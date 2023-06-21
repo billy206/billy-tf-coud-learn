@@ -28,6 +28,11 @@ locals {
     authorized_networks = var.cloud_sql_authorized_networks
   }
 
+  name = data.terraform_remote_state.workspace.outputs.local_name
+
+  project_id = data.terraform_remote_state.workspace.outputs.generic_project_id
+  region     = data.terraform_remote_state.workspace.outputs.generic_gcp_region
+
   product_name = data.terraform_remote_state.workspace.outputs.generic_product_name
   environment  = data.terraform_remote_state.workspace.outputs.generic_environment
 }
@@ -40,8 +45,8 @@ module "cloud-sql-db-postgresql-plt" {
   version = "15.0.0"
 
   # Cloud SQL Project Configuration
-  project_id = var.project_id
-  region     = var.gcp_region
+  project_id = local.project_id
+  region     = local.region
 
   # Cloud SQL Master Configuration
   name                        = "${local.name}-plt"
@@ -125,8 +130,8 @@ module "cloud-sql-db-postgresql-cs" {
   version = "15.0.0"
 
   # Cloud SQL Project Configuration
-  project_id = var.project_id
-  region     = var.gcp_region
+  project_id = local.project_id
+  region     = local.region
 
   # Cloud SQL Master Configuration
   name                        = "${local.name}-cs"

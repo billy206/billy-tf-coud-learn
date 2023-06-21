@@ -25,7 +25,7 @@ cloud_sql_backup_configuration = {
   start_time                     = null,
   transaction_log_retention_days = null
 }
-c
+
 # Cloud SQL Replica Configuration
 cloud_sql_replica_name_suffix                 = ""
 cloud_sql_replica_deletion_protection         = false

@@ -1,24 +1,3 @@
-data "terraform_remote_state" "workspace" {
-  backend = "remote"
-
-  config = {
-    organization = "billy-test-tf"
-    workspaces = {
-      name = "gke-billy-tf-coud-learn"
-    }
-  }
-}
-
-# GCP Availability Zones Datasource
-data "google_compute_zones" "available" {
-  project = local.region
-}
-
-resource "random_integer" "index" {
-  min = 0
-  max = length(data.google_compute_zones.available.names) - 1
-}
-
 # Replica IP Configuration
 locals {
   name = data.terraform_remote_state.workspace.outputs.local_name
@@ -38,6 +17,28 @@ locals {
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
   }
+}
+
+data "terraform_remote_state" "workspace" {
+  backend = "remote"
+
+  config = {
+    organization = "billy-test-tf"
+    workspaces = {
+      name = "gke-billy-tf-coud-learn"
+    }
+  }
+}
+
+# GCP Availability Zones Datasource
+data "google_compute_zones" "available" {
+  project = local.project_id
+  region  = local.region
+}
+
+resource "random_integer" "index" {
+  min = 0
+  max = length(data.google_compute_zones.available.names) - 1
 }
 
 #########################################################

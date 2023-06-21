@@ -82,7 +82,7 @@ module "cloud-sql-db-postgresql-plt" {
 
   backup_configuration = var.cloud_sql_backup_configuration
 
-  count = 1
+  count = 2
 
   # Cloud SQL Read Replica Configuration
   read_replica_name_suffix = var.cloud_sql_replica_name_suffix

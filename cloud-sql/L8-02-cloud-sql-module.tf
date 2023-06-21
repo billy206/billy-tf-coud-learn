@@ -30,17 +30,6 @@ locals {
   }
 }
 
-# GCP Availability Zones Datasource
-# data "google_compute_zones" "available" {
-#   project = local.project_id
-#   region  = local.region
-# }
-
-# resource "random_integer" "index" {
-#   min = 0
-#   max = length(data.google_compute_zones.available.names) - 1
-# }
-
 #########################################################
 # Create Cloud SQL (PostgreSQL) Platform Terraform Module
 #########################################################
@@ -67,6 +56,7 @@ module "cloud-sql-db-postgresql-plt" {
   disk_type             = var.cloud_sql_disk_type
 
   user_labels = {
+    database-for  = "plt"
     database-type = "master"
     product_name  = local.product_name
     environment   = local.environment
@@ -98,6 +88,7 @@ module "cloud-sql-db-postgresql-plt" {
       disk_size             = var.cloud_sql_disk_size
       disk_type             = var.cloud_sql_disk_type
       user_labels = {
+        database-for  = "plt"
         database-type = "read-replica"
         product_name  = local.product_name
         environment   = local.environment
@@ -150,8 +141,9 @@ module "cloud-sql-db-postgresql-cs" {
   disk_type             = var.cloud_sql_disk_type
 
   user_labels = {
+    database-for  = "cs"
     database-type = "master"
-    product_name  = local.product_name
+    product-name  = local.product_name
     environment   = local.environment
   }
 
@@ -180,8 +172,9 @@ module "cloud-sql-db-postgresql-cs" {
       disk_size             = var.cloud_sql_disk_size
       disk_type             = var.cloud_sql_disk_type
       user_labels = {
+        database-for  = "cs"
         database-type = "read-replica"
-        product_name  = local.product_name
+        product-name  = local.product_name
         environment   = local.environment
       }
       encryption_key_name = null

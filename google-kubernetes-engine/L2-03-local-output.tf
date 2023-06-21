@@ -10,21 +10,21 @@ output "generic_project_id" {
 output "generic_gcp_region" {
   description = "Region in which GKE Resources to be created"
   type        = string
-  default     = "asia-east1"
+  default     = var.gcp_region
 }
 
 # Environment Variable
 output "generic_environment" {
   description = "Environment Variable as a suffix"
   type        = string
-  default     = "alpha-dev"
+  default     = var.environment
 }
 
 # Product Name
 output "generic_product_name" {
   description = "Product Name"
   type        = string
-  default     = "alpha-product"
+  default     = var.product_name
 }
 
 # Local Output Values
@@ -33,5 +33,5 @@ output "generic_product_name" {
 output "local_name" {
   description = "locals name"
   type        = string
-  default     = "alpha-product"
+  default     = local.name
 }

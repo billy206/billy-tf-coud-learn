@@ -31,15 +31,15 @@ data "terraform_remote_state" "workspace" {
 }
 
 # GCP Availability Zones Datasource
-data "google_compute_zones" "available" {
-  project = local.project_id
-  region  = local.region
-}
+# data "google_compute_zones" "available" {
+#   project = local.project_id
+#   region  = local.region
+# }
 
-resource "random_integer" "index" {
-  min = 0
-  max = length(data.google_compute_zones.available.names) - 1
-}
+# resource "random_integer" "index" {
+#   min = 0
+#   max = length(data.google_compute_zones.available.names) - 1
+# }
 
 #########################################################
 # Create Cloud SQL (PostgreSQL) Platform Terraform Module
@@ -86,8 +86,9 @@ module "cloud-sql-db-postgresql-plt" {
   read_replica_name_suffix = var.cloud_sql_replica_name_suffix
   read_replicas = [
     {
-      name                  = "-0"
-      zone                  = data.google_compute_zones.available.names[random_integer.index.result]
+      name = "-0"
+      # zone                  = data.google_compute_zones.available.names[random_integer.index.result]
+      zone                  = "${region}-c"
       availability_type     = var.cloud_sql_availability_type
       tier                  = var.cloud_sql_tier
       ip_configuration      = local.read_replica_ip_configuration
@@ -169,7 +170,7 @@ module "cloud-sql-db-postgresql-cs" {
   read_replicas = [
     {
       name                  = "-0"
-      zone                  = data.google_compute_zones.available.names[random_integer.index.result]
+      zone                  = "${region}-c"
       availability_type     = var.cloud_sql_availability_type
       tier                  = var.cloud_sql_tier
       ip_configuration      = local.read_replica_ip_configuration

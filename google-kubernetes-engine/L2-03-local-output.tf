@@ -9,19 +9,19 @@ output "generic_project_id" {
 # GCP Region
 output "generic_gcp_region" {
   description = "Region in which GKE Resources to be created"
-  default = var.gcp_region
+  value = var.gcp_region
 }
 
 # Environment Variable
 output "generic_environment" {
   description = "Environment Variable as a suffix"
-  default = var.environment
+  value = var.environment
 }
 
 # Product Name
 output "generic_product_name" {
   description = "Product Name"
-  default = var.product_name
+  value = var.product_name
 }
 
 # Local Output Values
@@ -29,5 +29,5 @@ output "generic_product_name" {
 # local variable ('name')
 output "local_name" {
   description = "locals name"
-  default = local.name
+  value = local.name
 }

@@ -1,3 +1,14 @@
+data "terraform_remote_state" "workspace" {
+  backend = "remote"
+
+  config = {
+    organization = "billy-test-tf"
+    workspaces = {
+      name = "gke-billy-tf-coud-learn"
+    }
+  }
+}
+
 # Replica IP Configuration
 locals {
   name = data.terraform_remote_state.workspace.outputs.local_name
@@ -16,17 +27,6 @@ locals {
     private_network     = local.private_network
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
-  }
-}
-
-data "terraform_remote_state" "workspace" {
-  backend = "remote"
-
-  config = {
-    organization = "billy-test-tf"
-    workspaces = {
-      name = "gke-billy-tf-coud-learn"
-    }
   }
 }
 

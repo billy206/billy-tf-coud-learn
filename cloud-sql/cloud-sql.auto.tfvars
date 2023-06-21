@@ -9,7 +9,7 @@ cloud_sql_name_suffix                 = ""
 cloud_sql_database_version            = "POSTGRES_14"
 cloud_sql_tier                        = "db-g1-small"
 cloud_sql_zone                        = ""
-cloud_sql_availability_type           = "ZONAL"
+cloud_sql_availability_type           = "REGIONAL"
 cloud_sql_deletion_protection         = false
 cloud_sql_deletion_protection_enabled = false
 cloud_sql_disk_autoresize             = false
@@ -25,7 +25,7 @@ cloud_sql_backup_configuration = {
   start_time                     = null,
   transaction_log_retention_days = null
 }
-
+c
 # Cloud SQL Replica Configuration
 cloud_sql_replica_name_suffix                 = ""
 cloud_sql_replica_deletion_protection         = false

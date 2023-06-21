@@ -8,7 +8,7 @@ cluster_enable_private_nodes         = true
 cluster_master_ipv4_cidr_block       = "10.8.0.0/28"
 cluster_master_global_access_enabled = false
 cluster_master_authorized_networks   = [{ cidr_block = "61.220.72.61/32", display_name = "alpha-1" }]
-cluster_default_max_pods_per_node    = 64
+cluster_default_max_pods_per_node    = 32
 cluster_datapath_provider            = "DATAPATH_PROVIDER_UNSPECIFIED"
 cluster_network_policy               = false
 cluster_identity_namespace           = "enabled"

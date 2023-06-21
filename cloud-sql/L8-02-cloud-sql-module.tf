@@ -27,6 +27,9 @@ locals {
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
   }
+
+  product_name = data.terraform_remote_state.workspace.outputs.generic_product_name
+  environment  = data.terraform_remote_state.workspace.outputs.generic_environment
 }
 
 #########################################################
@@ -56,8 +59,8 @@ module "cloud-sql-db-postgresql-plt" {
 
   user_labels = {
     database-type = "master"
-    product_name  = var.product_name
-    environment   = var.environment
+    product_name  = local.product_name
+    environment   = local.environment
   }
 
   ip_configuration = {
@@ -89,8 +92,8 @@ module "cloud-sql-db-postgresql-plt" {
       disk_type             = var.cloud_sql_disk_type
       user_labels = {
         database-type = "read-replica"
-        product_name  = var.product_name
-        environment   = var.environment
+        product_name  = local.product_name
+        environment   = local.environment
       }
       encryption_key_name = null
     }
@@ -141,8 +144,8 @@ module "cloud-sql-db-postgresql-cs" {
 
   user_labels = {
     database-type = "master"
-    product_name  = var.product_name
-    environment   = var.environment
+    product_name  = local.product_name
+    environment   = local.environment
   }
 
   ip_configuration = {
@@ -174,8 +177,8 @@ module "cloud-sql-db-postgresql-cs" {
       disk_type             = var.cloud_sql_disk_type
       user_labels = {
         database-type = "read-replica"
-        product_name  = var.product_name
-        environment   = var.environment
+        product_name  = local.product_name
+        environment   = local.environment
       }
       encryption_key_name = null
     }

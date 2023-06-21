@@ -20,14 +20,6 @@ resource "random_integer" "index" {
 
 # Replica IP Configuration
 locals {
-  read_replica_ip_configuration = {
-    ipv4_enabled        = var.cloud_sql_ipv4_enabled
-    require_ssl         = var.cloud_sql_require_ssl
-    private_network     = module.vpc.network_id
-    allocated_ip_range  = var.cloud_sql_allocated_ip_range
-    authorized_networks = var.cloud_sql_authorized_networks
-  }
-
   name = data.terraform_remote_state.workspace.outputs.local_name
 
   project_id = data.terraform_remote_state.workspace.outputs.generic_project_id
@@ -35,6 +27,16 @@ locals {
 
   product_name = data.terraform_remote_state.workspace.outputs.generic_product_name
   environment  = data.terraform_remote_state.workspace.outputs.generic_environment
+
+  private_network = data.terraform_remote_state.workspace.outputs.network_id
+
+  read_replica_ip_configuration = {
+    ipv4_enabled        = var.cloud_sql_ipv4_enabled
+    require_ssl         = var.cloud_sql_require_ssl
+    private_network     = local.private_network
+    allocated_ip_range  = var.cloud_sql_allocated_ip_range
+    authorized_networks = var.cloud_sql_authorized_networks
+  }
 }
 
 #########################################################
@@ -69,10 +71,9 @@ module "cloud-sql-db-postgresql-plt" {
   }
 
   ip_configuration = {
-    ipv4_enabled = var.cloud_sql_ipv4_enabled
-    require_ssl  = var.cloud_sql_require_ssl
-    # private_network     = module.vpc.network_id
-    private_network     = data.terraform_remote_state.workspace.outputs.network_id
+    ipv4_enabled        = var.cloud_sql_ipv4_enabled
+    require_ssl         = var.cloud_sql_require_ssl
+    private_network     = local.private_network
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
   }
@@ -154,10 +155,9 @@ module "cloud-sql-db-postgresql-cs" {
   }
 
   ip_configuration = {
-    ipv4_enabled = var.cloud_sql_ipv4_enabled
-    require_ssl  = var.cloud_sql_require_ssl
-    # private_network     = module.vpc.network_id
-    private_network     = data.terraform_remote_state.workspace.outputs.network_id
+    ipv4_enabled        = var.cloud_sql_ipv4_enabled
+    require_ssl         = var.cloud_sql_require_ssl
+    private_network     = local.private_network
     allocated_ip_range  = var.cloud_sql_allocated_ip_range
     authorized_networks = var.cloud_sql_authorized_networks
   }

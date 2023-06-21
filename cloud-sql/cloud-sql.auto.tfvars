@@ -9,7 +9,13 @@ cloud_sql_name_suffix                 = ""
 cloud_sql_database_version            = "POSTGRES_14"
 cloud_sql_tier                        = "db-g1-small"
 cloud_sql_zone                        = ""
-cloud_sql_availability_type           = "REGIONAL"
+
+# ORIGINAL
+# cloud_sql_availability_type           = "REGIONAL"
+
+# TEST
+cloud_sql_availability_type           = "ZONAL" 
+
 cloud_sql_deletion_protection         = false
 cloud_sql_deletion_protection_enabled = false
 cloud_sql_disk_autoresize             = false

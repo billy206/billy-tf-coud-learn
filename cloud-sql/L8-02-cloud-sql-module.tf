@@ -11,6 +11,7 @@ data "terraform_remote_state" "workspace" {
 
 # GCP Availability Zones Datasource
 data "google_compute_zones" "available" {
+  project = local.region
 }
 
 resource "random_integer" "index" {

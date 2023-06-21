@@ -1,12 +1,5 @@
 # Cloud SQL (PostgreSQL) Input Variables
 
-# Cloud SQL TEST
-variable "cloud_sql_private_network" {
-  description = "Test"
-  type        = string
-  default     = ""
-}
-
 # Cloud SQL IPv4
 variable "cloud_sql_ipv4_enabled" {
   description = "Enable IPv4 for Cloud SQL Private Subnets Communication"

@@ -94,6 +94,26 @@ module "cloud-sql-db-postgresql-plt" {
         environment   = local.environment
       }
       encryption_key_name = null
+    },
+    {
+      name = "-1"
+      # zone                  = data.google_compute_zones.available.names[random_integer.index.result]
+      zone                  = "${local.region}-c"
+      availability_type     = var.cloud_sql_availability_type
+      tier                  = var.cloud_sql_tier
+      ip_configuration      = local.read_replica_ip_configuration
+      database_flags        = []
+      disk_autoresize       = var.cloud_sql_disk_autoresize
+      disk_autoresize_limit = var.cloud_sql_disk_autoresize_limit
+      disk_size             = var.cloud_sql_disk_size
+      disk_type             = var.cloud_sql_disk_type
+      user_labels = {
+        database-for  = "plt"
+        database-type = "read-replica"
+        product_name  = local.product_name
+        environment   = local.environment
+      }
+      encryption_key_name = null
     }
   ]
   read_replica_deletion_protection         = var.cloud_sql_replica_deletion_protection

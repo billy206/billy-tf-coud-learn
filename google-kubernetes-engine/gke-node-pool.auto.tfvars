@@ -1,7 +1,6 @@
 cluster_node_pools = [
   {
     version            = ""
-    # name               = "default-node-pool"
     name               = "default-pool"
     machine_type       = "e2-standard-2"
     node_locations     = ""

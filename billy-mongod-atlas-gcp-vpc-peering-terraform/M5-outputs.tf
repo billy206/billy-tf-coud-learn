@@ -2,9 +2,9 @@
 # MongoDB Atlas Outputs Variables
 ############################################
 
-output "mongodb_atlas_connection_string" {
+output "mongodb_atlas_plt-cluster_connection_string" {
   description = "The connection strings of the MongoDB Atlas server"
-  value       = mongodbatlas_cluster.cluster.connection_strings
+  value       = mongodbatlas_cluster.plt-cluster.connection_strings
 }
 
 output "mongodb_atlas_network" {

@@ -7,7 +7,7 @@ resource "mongodbatlas_cluster" "plt-cluster" {
   # MongoDB Atlas Project ID
   project_id = var.mongodb_atlas_project_id
 
-  name         = "${data.terraform_remote_state.workspace.outputs.local_name}-plt-mongodb-${mongodb_atlas_cluster_name_suffix}"
+  name         = "${data.terraform_remote_state.workspace.outputs.local_name}-plt-mongodb-${var.mongodb_atlas_cluster_name_suffix}"
   cluster_type = var.mongodb_atlas_cluster_type
   replication_specs {
     num_shards = var.mongodb_atlas_replica_num_shards

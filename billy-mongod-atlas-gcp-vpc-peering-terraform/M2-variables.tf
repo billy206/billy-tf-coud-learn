@@ -52,13 +52,6 @@ variable "mongodb_atlas_region" {
   default     = "asia-east1"
 }
 
-# MongoDB Atlas CIDR
-variable "mongodb_atlas_cidr" {
-  description = "The CIDR for MongoDB Atlas Network"
-  type        = string
-  default     = "172.0.0.0/18"
-}
-
 # MongoDB Atlas Provider Name
 variable "mongodb_atlas_provider_name" {
   description = "The Name for MongoDB Atlas Provider"
@@ -66,4 +59,10 @@ variable "mongodb_atlas_provider_name" {
   default     = "TENANT"
 }
 
+# MongoDB Atlas CIDR
+variable "mongodb_atlas_cidr" {
+  description = "The CIDR for MongoDB Atlas Network"
+  type        = string
+  default     = "172.0.0.0/18"
+}
 

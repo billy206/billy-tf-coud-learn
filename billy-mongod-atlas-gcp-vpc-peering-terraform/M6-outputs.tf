@@ -3,17 +3,17 @@
 ############################################
 
 output "mongodb_atlas_connection_string" {
-  description = "TODO"
+  description = "The connection strings of the MongoDB Atlas server"
   value       = mongodbatlas_cluster.cluster.connection_strings
 }
 
 output "mongodb_atlas_network" {
-  description = "TODO"
+  description = "The Network of the MongoDB Atlas"
   value       = mongodbatlas_network_container.mongodb-atlas-network.container_id
 }
 
-output "mongodbatlas_network_peering" {
-  description = "TODO"
+output "mongodb_atlas_network_peering" {
+  description = "The Peering of the MongoDB Atlas Network"
   value       = mongodbatlas_network_peering.mongodb-atlas-peering
 }
 
@@ -21,12 +21,12 @@ output "mongodbatlas_network_peering" {
 # GCP Outputs Variables
 ############################################
 
-output "billy_test" {
-  description = "TODO"
-  value       = data.google_compute_network.vpc
-}
+# output "billy_test" {
+#   description = "The Peering of the MongoDB Atlas"
+#   value       = data.google_compute_network.vpc
+# }
 
 output "google_compute_network_peering" {
-  description = "TODO"
+  description = "The Peering of the GCP Network"
   value       = google_compute_network_peering.vpc-peering
 }

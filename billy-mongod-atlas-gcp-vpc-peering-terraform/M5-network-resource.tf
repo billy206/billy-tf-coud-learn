@@ -4,7 +4,7 @@ resource "mongodbatlas_network_container" "mongodb-atlas-network" {
   project_id = var.mongodb_atlas_project_id
   # MongoDB Network CIDR
   atlas_cidr_block = var.mongodb_atlas_cidr
-  provider_name    = "GCP"
+  provider_name    = var.mongodb_atlas_provider_name
 }
 
 # Resource - Create Network Peering of MongoDB Atlas Network to GCP VPC with Terraform

@@ -13,13 +13,16 @@
   MONGODB_ATLAS_PRIVATE_KEY=[PRIVATE KEY]
 ```
 
-## MongoDB Atlas Create API Key for "PROJECT"
+## MongoDB Atlas Create API Key for "Terraform" use in Project
 
 - Choose Project
-- The top title of the left sidebar is "PROJECT".
+- The top title of the left sidebar is "PROJECT"
 - Go to Access Manager -> Click on **Create API Key**
   - **Description**: Terraform API Key
   - **Project Permissions**: Project Cluster Manager
+  - Click on **Add Access List Entry**
+    - Input 0.0.0.0/1
+- Refer Link for **Access List Entry** https://github.com/mongodb/terraform-provider-mongodbatlas/issues/1048#issuecomment-1428524993
 
 ## Billy Public & Private Key
 

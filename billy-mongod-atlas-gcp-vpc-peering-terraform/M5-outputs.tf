@@ -23,5 +23,5 @@ output "mongodb_atlas_network_peering" {
 
 output "google_compute_network_peering" {
   description = "The Peering of the GCP Network"
-  value       = google_compute_network_peering.vpc-peering
+  value       = google_compute_network_peering.gcp-vpc-peering
 }

@@ -1,12 +1,5 @@
 # Terraform Settings Block
 terraform {
-  cloud {
-    organization = "billy-test-tf"
-
-    workspaces {
-      name = "mongod-altas-billy-tf-coud-learn"
-    }
-  }
   required_version = ">= 1.0.0"
   required_providers {
     google = {

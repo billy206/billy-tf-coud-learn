@@ -13,10 +13,12 @@ resource "mongodbatlas_cluster" "cluster" {
       read_only_nodes = 0
     }
   }
+
   labels {
     key   = "environment"
     value = "prod"
   }
+
   cloud_backup                 = false
   auto_scaling_disk_gb_enabled = false
   # mongo_db_major_version                  = "5.0"

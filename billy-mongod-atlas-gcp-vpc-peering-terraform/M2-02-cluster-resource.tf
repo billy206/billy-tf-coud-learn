@@ -25,8 +25,11 @@ resource "mongodbatlas_cluster" "plt-cluster" {
     value = "prod"
   }
 
-  cloud_backup                 = var.mongodb_atlas_cloud_backup
-  auto_scaling_disk_gb_enabled = var.mongodb_atlas_auto_scaling_disk_gb_enabled
+  # TODO
+  # termination_protection_enabled
+
+  cloud_backup                            = var.mongodb_atlas_cloud_backup
+  auto_scaling_disk_gb_enabled            = var.mongodb_atlas_auto_scaling_disk_gb_enabled
   mongo_db_major_version                  = "5.0"
   auto_scaling_compute_enabled            = var.mongodb_atlas_auto_scaling_compute_enabled
   auto_scaling_compute_scale_down_enabled = var.mongodb_atlas_auto_scaling_compute_scale_down_enabled
@@ -42,7 +45,7 @@ resource "mongodbatlas_cluster" "plt-cluster" {
   provider_region_name        = "EASTERN_ASIA_PACIFIC"
   backing_provider_name       = "GCP"
   provider_instance_size_name = "M0"
-
+  private_endpoint_enabled    = true
   ####################################
   # for ldpro
   # provider_instance_size_name                     = "M10"

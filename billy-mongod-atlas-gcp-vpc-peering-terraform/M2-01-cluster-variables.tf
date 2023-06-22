@@ -114,3 +114,11 @@ variable "mongodb_atlas_auto_scaling_compute_scale_down_enabled" {
   type        = bool
   default     = true
 }
+
+# MongoDB Atlas Private Endpoint
+variable "mongodb_atlas_private_endpoint_enabled" {
+  description = "MongoDB Atlas Private Endpoint"
+  type        = bool
+  default     = false
+}
+

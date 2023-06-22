@@ -37,6 +37,13 @@ variable "mongodb_atlas_provider_name" {
   default     = "TENANT"
 }
 
+# MongoDB Atlas Provider Region Name
+variable "mongodb_atlas_provider_region_name" {
+  description = "The Region for MongoDB Atlas Provider"
+  type        = string
+  default     = "EASTERN_ASIA_PACIFIC"
+}
+
 # MongoDB Atlas CIDR
 variable "mongodb_atlas_cidr" {
   description = "The CIDR for MongoDB Atlas Network"

@@ -15,7 +15,7 @@ resource "mongodbatlas_cluster" "plt-cluster" {
     num_shards = var.mongodb_atlas_replica_num_shards
 
     regions_config {
-      region_name     = var.provider_region_name
+      region_name     = var.mongodb_atlas_provider_region_name
       electable_nodes = 3
       priority        = 7
       read_only_nodes = 0
@@ -44,7 +44,7 @@ resource "mongodbatlas_cluster" "plt-cluster" {
   # Provider Settings "block"
   # provider_name               = "GCP"
   provider_name               = "TENANT"
-  provider_region_name        = var.provider_region_name
+  provider_region_name        = var.mongodb_atlas_provider_region_name
   backing_provider_name       = "GCP"
   provider_instance_size_name = "M0"
   ####################################

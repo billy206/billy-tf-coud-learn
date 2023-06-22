@@ -32,6 +32,6 @@ resource "mongodbatlas_privatelink_endpoint" "mongodb-atlas-private_endpoint" {
   # MongoDB Atlas Provider Name
   provider_name = var.mongodb_atlas_provider_name
 
-  # MongoDB Atlas Region
-  region = var.provider_region_name
+  # MongoDB Atlas Provider Region Name
+  region = var.mongodb_atlas_provider_region_name
 }

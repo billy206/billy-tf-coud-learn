@@ -17,8 +17,9 @@ resource "mongodbatlas_network_peering" "mongodb-atlas-peering" {
   # MongoDB Atlas Network ID
   container_id = mongodbatlas_network_container.mongodb-atlas-network.container_id
 
-  provider_name  = var.mongodb_atlas_provider_name
-  gcp_project_id = var.gcp_project_id
-  # network_name   = "ldpro-dev-vpc"
-  network_name = data.terraform_remote_state.workspace.outputs.network_name
+  # MongoDB Atlas Provider Name
+  provider_name = var.mongodb_atlas_provider_name
+
+  gcp_project_id = data.terraform_remote_state.workspace.generic_project_id
+  network_name   = data.terraform_remote_state.workspace.outputs.network_name
 }

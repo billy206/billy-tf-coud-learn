@@ -1,17 +1,24 @@
 # This cluster is in GCP cloud-provider with VPC peering enabled
 
-resource "mongodbatlas_cluster" "cluster" {
-  project_id   = var.mongodb_atlas_project_id
-  name         = "cluster-test"
-  cluster_type = "REPLICASET"
+#########################################################
+# Create MongoDB Atlas Platform Terraform Resource
+#########################################################
+resource "mongodbatlas_cluster" "plt-cluster" {
+  # MongoDB Atlas Project ID
+  project_id = var.mongodb_atlas_project_id
+
+  name         = "${data.terraform_remote_state.workspace.local_name}-plt-mongodb-${mongodb_atlas_name_suffix}"
+  cluster_type = var.mongodb_atlas_cluster_type
   replication_specs {
-    num_shards = 1
+    num_shards = var.mongodb_atlas_replica_num_shards
+
     regions_config {
       region_name     = "EASTERN_ASIA_PACIFIC"
       electable_nodes = 3
       priority        = 7
       read_only_nodes = 0
     }
+
   }
 
   labels {
@@ -19,11 +26,11 @@ resource "mongodbatlas_cluster" "cluster" {
     value = "prod"
   }
 
-  cloud_backup                 = false
-  auto_scaling_disk_gb_enabled = false
+  cloud_backup                 = var.mongodb_atlas_cloud_backup
+  auto_scaling_disk_gb_enabled = var.mongodb_atlas_auto_scaling_disk_gb_enabled
   # mongo_db_major_version                  = "5.0"
-  auto_scaling_compute_enabled            = false
-  auto_scaling_compute_scale_down_enabled = false
+  auto_scaling_compute_enabled            = var.mongodb_atlas_auto_scaling_compute_enabled
+  auto_scaling_compute_scale_down_enabled = var.mongodb_atlas_auto_scaling_compute_scale_down_enabled
 
   ####################################
   # for ldpro

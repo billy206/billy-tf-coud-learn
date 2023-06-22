@@ -21,11 +21,6 @@ output "mongodb_atlas_network_peering" {
 # GCP Outputs Variables
 ############################################
 
-# output "billy_test" {
-#   description = "The Peering of the MongoDB Atlas"
-#   value       = data.google_compute_network.vpc
-# }
-
 output "google_compute_network_peering" {
   description = "The Peering of the GCP Network"
   value       = google_compute_network_peering.vpc-peering

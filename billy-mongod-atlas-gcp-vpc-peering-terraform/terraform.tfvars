@@ -7,5 +7,5 @@
 # gcp_region     = "asia-east1"
 
 # Mongo Atlas Platform Variables
-mongo_atlas_project_id = "6291a2757bbf5f67aad77b94"
+mongo_atlas_project_id = "6493f8e283c08b7f55fbf42a"
 mongo_atlas_region     = "asia-east1"

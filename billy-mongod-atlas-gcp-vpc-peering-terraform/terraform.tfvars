@@ -1,6 +1,6 @@
 # MongoDB Atlas Basic Configuration
 mongodb_atlas_project_id    = "6493f8e283c08b7f55fbf42a"
-mongodb_atlas_name_suffix   = "cluster"
+mongodb_atlas_cluster_name_suffix   = "cluster"
 mongodb_atlas_cluster_type  = "REPLICASET"
 mongodb_atlas_region        = "asia-east1"
 mongodb_atlas_provider_name = "GCP"

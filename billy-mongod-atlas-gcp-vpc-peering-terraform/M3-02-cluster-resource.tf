@@ -1,13 +1,13 @@
-data "terraform_remote_state" "workspace" {
-  backend = "remote"
+# data "terraform_remote_state" "workspace" {
+#   backend = "remote"
 
-  config = {
-    organization = "billy-test-tf"
-    workspaces = {
-      name = "gke-billy-tf-coud-learn"
-    }
-  }
-}
+#   config = {
+#     organization = "billy-test-tf"
+#     workspaces = {
+#       name = "gke-billy-tf-coud-learn"
+#     }
+#   }
+# }
 
 # locals {
 #   name = data.terraform_remote_state.workspace.outputs.local_name

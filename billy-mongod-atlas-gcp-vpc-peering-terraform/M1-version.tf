@@ -14,10 +14,7 @@ terraform {
 }
 
 # Terraform Provider Block
-provider "mongodbatlas" {
-  public_key  = var.public_key
-  private_key = var.private_key
-}
+provider "mongodbatlas" {}
 
 provider "google" {
   project = var.project_id

@@ -70,14 +70,14 @@ variable "mongodb_atlas_replica_electable_nodes" {
 }
 
 # MongoDB Atlas Replica Priority
-variable "mongodb_atlas_replica_electable_nodes" {
+variable "mongodb_atlas_replica_priority" {
   description = "MongoDB Atlas Replica Priority"
   type        = number
   default     = 7
 }
 
 # MongoDB Atlas Replica Read Only Nodes
-variable "mongodb_atlas_replica_electable_nodes" {
+variable "mongodb_atlas_replica_read_only_nodes" {
   description = "MongoDB Atlas Replica Read Only Nodes"
   type        = number
   default     = 0

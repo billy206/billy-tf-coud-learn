@@ -1,7 +1,7 @@
 # This cluster is in GCP cloud-provider with VPC peering enabled
 
 resource "mongodbatlas_cluster" "cluster" {
-  project_id   = var.mongo_atlas_project_id
+  project_id   = var.mongodb_atlas_project_id
   name         = "cluster-test"
   cluster_type = "REPLICASET"
   replication_specs {
@@ -17,9 +17,9 @@ resource "mongodbatlas_cluster" "cluster" {
     key   = "environment"
     value = "prod"
   }
-  cloud_backup                            = false
-  auto_scaling_disk_gb_enabled            = false
-  mongo_db_major_version                  = "5.0"
+  cloud_backup                 = false
+  auto_scaling_disk_gb_enabled = false
+  # mongo_db_major_version                  = "5.0"
   auto_scaling_compute_enabled            = false
   auto_scaling_compute_scale_down_enabled = false
 
@@ -44,13 +44,10 @@ resource "mongodbatlas_cluster" "cluster" {
   # advanced_configuration {
   #   minimum_enabled_tls_protocol = "TLS1_2"
   # }
-  lifecycle {
-    ignore_changes = [
-      provider_instance_size_name
-    ]
-  }
-}
-# The connection strings available for the GCP MognoDB Atlas cluster
-output "connection_string" {
-  value = mongodbatlas_cluster.cluster.connection_strings
+
+  # lifecycle {
+  #   ignore_changes = [
+  #     provider_instance_size_name
+  #   ]
+  # }
 }

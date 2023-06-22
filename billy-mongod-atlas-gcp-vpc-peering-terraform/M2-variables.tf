@@ -34,27 +34,36 @@ variable "gcp_region" {
   default     = "asia-east1"
 }
 
-# GCP Subnet CIDR
-variable "gcp_cidr" {
-  description = "The CIDR for GCP Project Network"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
 ############################################
-# Mongo Atlas Input Variables
+# MongoDB Atlas Input Variables
 ############################################
 
-# Mongo Atlas ID
-variable "mongo_atlas_project_id" {
+# MongoDB Atlas ID
+variable "mongodb_atlas_project_id" {
   description = "The ID for Atlas Project"
   type        = string
   default     = "mongo-atlas-id"
 }
 
-# Mongo Atlas Region
-variable "mongo_atlas_region" {
+# MongoDB Atlas Region
+variable "mongodb_atlas_region" {
   description = "The MongoDB Atlas region"
   type        = string
   default     = "asia-east1"
 }
+
+# MongoDB Atlas CIDR
+variable "mongodb_atlas_cidr" {
+  description = "The CIDR for MongoDB Atlas Network"
+  type        = string
+  default     = "172.0.0.0/18"
+}
+
+# MongoDB Atlas Provider Name
+variable "mongodb_atlas_provider_name" {
+  description = "The Name for MongoDB Atlas Provider"
+  type        = string
+  default     = "TENANT"
+}
+
+

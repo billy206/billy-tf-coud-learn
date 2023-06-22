@@ -4,6 +4,8 @@
 # Create MongoDB Atlas Platform Terraform Resource
 #########################################################
 resource "mongodbatlas_cluster" "plt-cluster" {
+  depends_on = [google_compute_network_peering.vpc-peering]
+
   # MongoDB Atlas Project ID
   project_id = var.mongodb_atlas_project_id
 

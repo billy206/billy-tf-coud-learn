@@ -18,4 +18,3 @@ mongodb_atlas_cloud_backup                            = false
 mongodb_atlas_auto_scaling_disk_gb_enabled            = false
 mongodb_atlas_auto_scaling_compute_enabled            = false
 mongodb_atlas_auto_scaling_compute_scale_down_enabled = false
-mongodb_atlas_private_endpoint_enabled                = true

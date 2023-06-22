@@ -45,7 +45,6 @@ resource "mongodbatlas_cluster" "plt-cluster" {
   provider_region_name        = "EASTERN_ASIA_PACIFIC"
   backing_provider_name       = "GCP"
   provider_instance_size_name = "M0"
-  private_endpoint_enabled    = true
   ####################################
   # for ldpro
   # provider_instance_size_name                     = "M10"

@@ -17,6 +17,6 @@ terraform {
 provider "mongodbatlas" {}
 
 provider "google" {
-  project = data.terraform_remote_state.workspace.generic_project_id
-  region  = data.terraform_remote_state.workspace.generic_gcp_region
+  project = data.terraform_remote_state.workspace.outputs.generic_project_id
+  region  = data.terraform_remote_state.workspace.outputs.generic_gcp_region
 }

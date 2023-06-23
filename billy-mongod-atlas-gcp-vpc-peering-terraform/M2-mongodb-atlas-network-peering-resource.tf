@@ -26,6 +26,8 @@ resource "mongodbatlas_network_peering" "mongodb-atlas-peering" {
 
 # Resource - Create Private Endpoint of MongoDB Atlas Network
 resource "mongodbatlas_privatelink_endpoint" "mongodb-atlas-private_endpoint" {
+  depends_on = [mongodbatlas_network_peering.mongodb-atlas-peering]
+
   # MongoDB Atlas Project ID
   project_id = var.mongodb_atlas_project_id
 

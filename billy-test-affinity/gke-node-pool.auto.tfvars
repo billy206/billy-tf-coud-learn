@@ -142,7 +142,7 @@ cluster_node_pools_taints = {
     {
       key    = "java-app-pool"
       value  = "java-app"
-      effect = "NoSchedule"
+      effect = "NO_SCHEDULE"
     },
   ]
 
@@ -150,7 +150,7 @@ cluster_node_pools_taints = {
     {
       key    = "redis-pool"
       value  = "redis"
-      effect = "NoSchedule"
+      effect = "NO_SCHEDULE"
     },
   ]
 
@@ -158,7 +158,7 @@ cluster_node_pools_taints = {
     {
       key    = "rabbitmq-pool"
       value  = "rabbitmq"
-      effect = "NoSchedule"
+      effect = "NO_SCHEDULE"
     },
   ]
 }

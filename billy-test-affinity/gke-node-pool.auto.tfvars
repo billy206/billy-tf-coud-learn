@@ -14,7 +14,7 @@ cluster_node_pools = [
   {
     version            = ""
     name               = "default-pool"
-    machine_type       = "custom-16-32768"
+    machine_type       = "e2-medium"
     node_locations     = ""
     min_count          = 1
     max_count          = 1
@@ -34,7 +34,7 @@ cluster_node_pools = [
   {
     version            = ""
     name               = "java-app-pool"
-    machine_type       = "custom-16-32768"
+    machine_type       = "e2-medium"
     node_locations     = ""
     min_count          = 1
     max_count          = 1
@@ -54,7 +54,7 @@ cluster_node_pools = [
   {
     version            = ""
     name               = "redis-pool"
-    machine_type       = "custom-16-32768"
+    machine_type       = "e2-medium"
     node_locations     = ""
     min_count          = 1
     max_count          = 2
@@ -74,7 +74,7 @@ cluster_node_pools = [
   {
     version            = ""
     name               = "rabbitmq-pool"
-    machine_type       = "custom-16-32768"
+    machine_type       = "e2-medium"
     node_locations     = ""
     min_count          = 1
     max_count          = 3

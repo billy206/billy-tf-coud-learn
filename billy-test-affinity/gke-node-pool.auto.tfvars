@@ -31,26 +31,26 @@ cluster_node_pools = [
     preemptible        = false
     initial_node_count = 0
   },
-  {
-    version            = ""
-    name               = "java-app-pool"
-    machine_type       = "e2-medium"
-    node_locations     = ""
-    min_count          = 1
-    max_count          = 1
-    local_ssd_count    = 0
-    spot               = false
-    disk_size_gb       = 50
-    disk_type          = "pd-standard"
-    image_type         = "COS_CONTAINERD"
-    enable_gcfs        = false
-    enable_gvnic       = false
-    auto_repair        = false
-    auto_upgrade       = false
-    service_account    = ""
-    preemptible        = false
-    initial_node_count = 1
-  },
+  # {
+  #   version            = ""
+  #   name               = "java-app-pool"
+  #   machine_type       = "e2-medium"
+  #   node_locations     = ""
+  #   min_count          = 1
+  #   max_count          = 1
+  #   local_ssd_count    = 0
+  #   spot               = false
+  #   disk_size_gb       = 50
+  #   disk_type          = "pd-standard"
+  #   image_type         = "COS_CONTAINERD"
+  #   enable_gcfs        = false
+  #   enable_gvnic       = false
+  #   auto_repair        = false
+  #   auto_upgrade       = false
+  #   service_account    = ""
+  #   preemptible        = false
+  #   initial_node_count = 1
+  # },
   {
     version            = ""
     name               = "redis-pool"
@@ -71,26 +71,26 @@ cluster_node_pools = [
     preemptible        = false
     initial_node_count = 1
   },
-  {
-    version            = ""
-    name               = "rabbitmq-pool"
-    machine_type       = "e2-medium"
-    node_locations     = ""
-    min_count          = 1
-    max_count          = 3
-    local_ssd_count    = 0
-    spot               = false
-    disk_size_gb       = 50
-    disk_type          = "pd-ssd"
-    image_type         = "COS_CONTAINERD"
-    enable_gcfs        = false
-    enable_gvnic       = false
-    auto_repair        = false
-    auto_upgrade       = false
-    service_account    = ""
-    preemptible        = false
-    initial_node_count = 1
-  }
+  # {
+  #   version            = ""
+  #   name               = "rabbitmq-pool"
+  #   machine_type       = "e2-medium"
+  #   node_locations     = ""
+  #   min_count          = 1
+  #   max_count          = 3
+  #   local_ssd_count    = 0
+  #   spot               = false
+  #   disk_size_gb       = 50
+  #   disk_type          = "pd-ssd"
+  #   image_type         = "COS_CONTAINERD"
+  #   enable_gcfs        = false
+  #   enable_gvnic       = false
+  #   auto_repair        = false
+  #   auto_upgrade       = false
+  #   service_account    = ""
+  #   preemptible        = false
+  #   initial_node_count = 1
+  # }
 ]
 
 cluster_node_pools_oauth_scopes = {

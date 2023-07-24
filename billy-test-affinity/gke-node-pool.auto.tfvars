@@ -49,7 +49,7 @@ cluster_node_pools = [
     auto_upgrade       = false
     service_account    = ""
     preemptible        = false
-    initial_node_count = 0
+    initial_node_count = 1
   },
   {
     version            = ""
@@ -69,7 +69,7 @@ cluster_node_pools = [
     auto_upgrade       = false
     service_account    = ""
     preemptible        = false
-    initial_node_count = 0
+    initial_node_count = 1
   },
   {
     version            = ""
@@ -89,7 +89,7 @@ cluster_node_pools = [
     auto_upgrade       = false
     service_account    = ""
     preemptible        = false
-    initial_node_count = 0
+    initial_node_count = 1
   }
 ]
 

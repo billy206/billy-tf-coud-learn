@@ -9,7 +9,7 @@ resource "google_compute_address" "nat-ip-address" {
   name  = "${local.name}-${var.nat_ip_name_suffix}-${count.index}"
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 

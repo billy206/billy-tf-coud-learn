@@ -106,17 +106,17 @@ cluster_node_pools_labels = {
     default-node-pool = true
   }
 
-  java-app-pool = {
-    node-purpose = "java-app-node"
-  }
+  # java-app-pool = {
+  #   node-purpose = "java-app-node"
+  # }
 
   redis-pool = {
     node-purpose = "redis-node"
   }
 
-  rabbitmq-pool = {
-    node-purpose = "rabbitmq-node"
-  }
+  # rabbitmq-pool = {
+  #   node-purpose = "rabbitmq-node"
+  # }
 }
 
 cluster_node_pools_metadata = {
@@ -138,13 +138,13 @@ cluster_node_pools_taints = {
     },
   ]
 
-  java-app-pool = [
-    {
-      key    = "java-app-pool"
-      value  = "java-app"
-      effect = "NO_SCHEDULE"
-    },
-  ]
+  # java-app-pool = [
+  #   {
+  #     key    = "java-app-pool"
+  #     value  = "java-app"
+  #     effect = "NO_SCHEDULE"
+  #   },
+  # ]
 
   redis-pool = [
     {
@@ -154,13 +154,13 @@ cluster_node_pools_taints = {
     },
   ]
 
-  rabbitmq-pool = [
-    {
-      key    = "rabbitmq-pool"
-      value  = "rabbitmq"
-      effect = "NO_SCHEDULE"
-    },
-  ]
+  # rabbitmq-pool = [
+  #   {
+  #     key    = "rabbitmq-pool"
+  #     value  = "rabbitmq"
+  #     effect = "NO_SCHEDULE"
+  #   },
+  # ]
 }
 
 cluster_node_pools_tags = {
@@ -170,13 +170,9 @@ cluster_node_pools_tags = {
     "default-node-pool",
   ]
 
-  java-app-pool = [
-    "java-app-pool",
-  ]
-
-  redis-pool = [
-    "redis-pool",
-  ]
+  # java-app-pool = [
+  #   "java-app-pool",
+  # ]
 
   redis-pool = [
     "redis-pool",

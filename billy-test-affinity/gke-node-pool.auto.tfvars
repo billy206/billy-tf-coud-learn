@@ -170,11 +170,15 @@ cluster_node_pools_tags = {
     "default-node-pool",
   ]
 
-  java-app-pool = [
-    "java-app-pool",
-  ]
+  # java-app-pool = [
+  #   "java-app-pool",
+  # ]
 
   # redis-pool = [
   #   "redis-pool",
   # ]
+
+  rabbitmq-pool = [
+    "rabbitmq-pool",
+  ]
 }

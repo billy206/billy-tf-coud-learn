@@ -51,29 +51,9 @@ cluster_node_pools = [
   #   preemptible        = false
   #   initial_node_count = 1
   # },
-  {
-    version            = ""
-    name               = "redis-pool"
-    machine_type       = "e2-medium"
-    node_locations     = ""
-    min_count          = 1
-    max_count          = 3
-    local_ssd_count    = 0
-    spot               = false
-    disk_size_gb       = 50
-    disk_type          = "pd-ssd"
-    image_type         = "COS_CONTAINERD"
-    enable_gcfs        = false
-    enable_gvnic       = false
-    auto_repair        = false
-    auto_upgrade       = false
-    service_account    = ""
-    preemptible        = false
-    initial_node_count = 1
-  },
   # {
   #   version            = ""
-  #   name               = "rabbitmq-pool"
+  #   name               = "redis-pool"
   #   machine_type       = "e2-medium"
   #   node_locations     = ""
   #   min_count          = 1
@@ -90,7 +70,27 @@ cluster_node_pools = [
   #   service_account    = ""
   #   preemptible        = false
   #   initial_node_count = 1
-  # }
+  # },
+  {
+    version            = ""
+    name               = "rabbitmq-pool"
+    machine_type       = "e2-medium"
+    node_locations     = ""
+    min_count          = 1
+    max_count          = 3
+    local_ssd_count    = 0
+    spot               = false
+    disk_size_gb       = 50
+    disk_type          = "pd-ssd"
+    image_type         = "COS_CONTAINERD"
+    enable_gcfs        = false
+    enable_gvnic       = false
+    auto_repair        = false
+    auto_upgrade       = false
+    service_account    = ""
+    preemptible        = false
+    initial_node_count = 1
+  }
 ]
 
 cluster_node_pools_oauth_scopes = {
@@ -110,13 +110,13 @@ cluster_node_pools_labels = {
   #   node-purpose = "java-app-node"
   # }
 
-  redis-pool = {
-    node-purpose = "redis-node"
-  }
-
-  # rabbitmq-pool = {
-  #   node-purpose = "rabbitmq-node"
+  # redis-pool = {
+  #   node-purpose = "redis-node"
   # }
+
+  rabbitmq-pool = {
+    node-purpose = "rabbitmq-node"
+  }
 }
 
 cluster_node_pools_metadata = {
@@ -146,21 +146,21 @@ cluster_node_pools_taints = {
   #   },
   # ]
 
-  redis-pool = [
-    {
-      key    = "redis-pool"
-      value  = "redis"
-      effect = "NO_SCHEDULE"
-    },
-  ]
-
-  # rabbitmq-pool = [
+  # redis-pool = [
   #   {
-  #     key    = "rabbitmq-pool"
-  #     value  = "rabbitmq"
+  #     key    = "redis-pool"
+  #     value  = "redis"
   #     effect = "NO_SCHEDULE"
   #   },
   # ]
+
+  rabbitmq-pool = [
+    {
+      key    = "rabbitmq-pool"
+      value  = "rabbitmq"
+      effect = "NO_SCHEDULE"
+    },
+  ]
 }
 
 cluster_node_pools_tags = {
@@ -170,11 +170,11 @@ cluster_node_pools_tags = {
     "default-node-pool",
   ]
 
-  # java-app-pool = [
-  #   "java-app-pool",
-  # ]
-
-  redis-pool = [
-    "redis-pool",
+  java-app-pool = [
+    "java-app-pool",
   ]
+
+  # redis-pool = [
+  #   "redis-pool",
+  # ]
 }
